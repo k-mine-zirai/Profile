@@ -5,7 +5,7 @@ services:
       context: ./app
     environment:
       - NODE_ENV=production
-      - REACT_APP_NAME=my-app
+      - REACT_APP_NAME=profile
     volumes:
       - ./app:/usr/src/app
       #- ./build:/usr/src/build

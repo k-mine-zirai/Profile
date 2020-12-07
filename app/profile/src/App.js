@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(2),
   },
+  headerTitle: {
+    flexGrow: 1,
+  },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
@@ -40,14 +43,12 @@ export default function App() {
 
   return (
     <React.Fragment>
-      <Header />
+      <Header classes={classes} />
       <main>
         <About classes={classes} />
         <CardObject classes={classes}/>
       </main>
       <FloatGoTop />
-      {/* Footer */}
-      {/* End footer */}
     </React.Fragment>
   );
 }

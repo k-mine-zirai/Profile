@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import { Button } from '@material-ui/core';
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -31,18 +32,49 @@ ElevationScroll.propTypes = {
   window: PropTypes.func,
 };
 
-export default function Header(props) {
+const CategoryList = [
+    {
+        name: "About Me",
+        anchor: "about-me-anchor"
+    },
+    {
+        name: "Skills",
+        anchor: "skills-anchor"
+    },
+    {
+        name: "Contact",
+        anchor: "contact-anchor"
+    },
+]
+
+// const handleClick = (event) => {
+//     const anchor = (event.target.ownerDocument || document).querySelector('#back-to-top-anchor');
+
+//     if (anchor) {
+//       anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+//     }
+//   };
+
+export default function Header(classes) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <ElevationScroll {...props}>
+      <ElevationScroll >
         <AppBar>
-          <Toolbar>
-            <Typography variant="h6">K.Minematsu's Page</Typography>
-          </Toolbar>
-
+            <Toolbar >
+                <Typography
+                style = {{flexGrow: 1}}
+                variant="h6">
+                    K.Minematsu's Page
+                </Typography>
+                {/* <Button color="inherit" onClick={handleClick()}>About Me</Button> */}
+                <Button color="inherit">About Me</Button>
+                <Button color="inherit">Skills</Button>
+                <Button color="inherit">Contact</Button>
+            </Toolbar>
         </AppBar>
       </ElevationScroll>
+      {/* ↓Topに戻るための目印 */}
       <Toolbar id="back-to-top-anchor" />
     </React.Fragment>
   );

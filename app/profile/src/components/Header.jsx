@@ -32,28 +32,17 @@ ElevationScroll.propTypes = {
   window: PropTypes.func,
 };
 
-const CategoryList = [
-    {
-        name: "About Me",
-        anchor: "about-me-anchor"
+const Categories = [
+    { name: "About Me",
+      link: "#about_me-anchor",
     },
-    {
-        name: "Skills",
-        anchor: "skills-anchor"
+    { name: "Skills",
+      link: "#skills-anchor",
     },
-    {
-        name: "Contact",
-        anchor: "contact-anchor"
+    { name: "Contact",
+      link: "#contact-anchor",
     },
-]
-
-// const handleClick = (event) => {
-//     const anchor = (event.target.ownerDocument || document).querySelector('#back-to-top-anchor');
-
-//     if (anchor) {
-//       anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-//     }
-//   };
+];
 
 export default function Header(classes) {
   return (
@@ -67,15 +56,14 @@ export default function Header(classes) {
                 variant="h6">
                     K.Minematsu's Page
                 </Typography>
-                {/* <Button color="inherit" onClick={handleClick()}>About Me</Button> */}
-                <Button color="inherit">About Me</Button>
-                <Button color="inherit">Skills</Button>
-                <Button color="inherit">Contact</Button>
+                {Categories.map((category) => (
+                    <Button color="inherit" href={category.link} > {category.name} </Button>
+                ))}
             </Toolbar>
         </AppBar>
       </ElevationScroll>
       {/* ↓Topに戻るための目印 */}
-      <Toolbar id="back-to-top-anchor" />
+      <div id="back-to-top-anchor" />
     </React.Fragment>
   );
 }

@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 const About = (classes) => {
     return (
         <React.StrictMode>
+            <div id="about_me-anchor" />
             {/* Hero unit */}
             <div className={classes.heroContent}>
             <Container maxWidth="sm">
